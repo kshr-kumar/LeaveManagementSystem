@@ -1,0 +1,41 @@
+﻿@model IEnumerable<LMMS.Models.LeaveTypeModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<h2>List of Types</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxDaysPerYear)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxDaysPerYear)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.LeaveTypeId  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.LeaveTypeId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

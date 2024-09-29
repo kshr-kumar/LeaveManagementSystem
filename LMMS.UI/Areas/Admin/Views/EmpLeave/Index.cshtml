@@ -1,0 +1,78 @@
+﻿@model IEnumerable<LMMS.Models.EmpLeaveModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<h4>Query result | Date Range | Applied Leaves List </h4>
+
+<hr />
+
+
+<form asp-action="Index">
+    <label for="startDate">
+        Start Date:  </label>
+    <input type="date" id="startDate" name="startDate" value="" />
+
+    
+    <label for="endDate">
+        End Date:  </label>
+    <input type="date" id="endDate" name="endDate" value="" />
+
+    <button type="submit">Filter</button>
+</form>
+
+<hr />
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+           
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveTypeName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DaysTaken)
+            </th>
+          
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+           
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveEndDate)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DaysTaken)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

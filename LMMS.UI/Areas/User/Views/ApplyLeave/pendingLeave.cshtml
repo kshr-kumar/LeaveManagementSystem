@@ -1,0 +1,38 @@
+﻿@model IEnumerable<LMMS.Models.EmpLeaveBalanceModel>
+
+@{
+    ViewData["Title"] = "pendingLeave";
+}
+
+<h1>PendingLeave</h1>
+
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailableDays)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableDays)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
